@@ -13,9 +13,9 @@ import org.bukkit.event.Event;
 public class CmdSkill extends SkillCooldown implements SkillExecute,SkillCustomLore {
 
     public CmdSkill(){
-        super("cmd");
+        super("cmd2");
         SkillManager.registerCommand(CmdSkill.class);
-        SkillManager.registerCustomLore("cmd", this);
+        SkillManager.registerCustomLore("cmd2", this);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CmdSkill extends SkillCooldown implements SkillExecute,SkillCustomL
     }
 
     @SubCommand(
-            cmd = "addSkill cmd <触发方式> <是否OP权限执行> <冷却> <命令>",
+            cmd = "addSkill cmd2 <触发方式> <是否OP权限执行> <冷却> <命令>",
             msg = "添加执行命令 true为是 false为否 {player}为玩家变量",
             checkArgs1 = 2,
             checkArgs2 = 1,
@@ -68,7 +68,7 @@ public class CmdSkill extends SkillCooldown implements SkillExecute,SkillCustomL
         String command = Util.argsToString(args).split(" ", 7)[6];
         JItem jitem = ItemManager.getItem(args[0]);
         jitem.addSkill(args[2], SkillTrigger.valueOf(args[3]), new SkillData(new Object[]{args[4], Integer.parseInt(args[5]), command}));
-        sender.sendMessage("§a技能 " + SkillManager.skillDisplayNameMap.get("cmd") + " 添加成功");
+        sender.sendMessage("§a技能 " + SkillManager.skillDisplayNameMap.get("cmd2") + " 添加成功");
     }
 
 }
